@@ -26,33 +26,17 @@ body{
   padding:0 20px;
 }
 
-#showcase h1{
-  font-size:75px;
-	line-height:1.2;
-	margin-bottom: 40px;
+h1{
+  font-size:70px;
+  line-height:1.2;
+  margin-bottom: 40px;
 }
 
 span {
 	color: rgb(148, 0, 0);
 }
 
-#showcase .button{
-  font-size:25px;
-  text-decoration:none;
-  color:#555555;
-  border:#555555 1px solid;
-  padding:10px 20px;
-  border-radius:10px;
-	margin-top:20px;
-	margin-bottom: 20px;
-}
-
-#showcase .button:hover{
-  background:#555555;
-  color:#fff;
-}
-
-.login{
+.login-box{
   width: 280px;
   position: absolute;
   top: 45%;
@@ -61,7 +45,7 @@ span {
   color: rgb(34, 34, 34);
 }
 
-.textbox{
+.form-group{
   width: 100%;
   overflow: hidden;
   font-size: 20px;
@@ -70,12 +54,12 @@ span {
   border-bottom: 1px solid #960000;
 }
 
-.textbox i{
+.form-group i{
   width: 26px;
   float: left;
   text-align: center;
 }
-.textbox input{
+.form-group input{
   border: none;
   outline: none;
   background: none;
