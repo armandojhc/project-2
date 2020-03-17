@@ -80,3 +80,10 @@ span {
   cursor: pointer;
   margin: 12px 0;
 }
+
+h2 {
+	color: rgb(45, 199, 24);
+	font-size: 40px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
