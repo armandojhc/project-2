@@ -1,0 +1,44 @@
+
+.font-lg {
+	font-size: 2rem;
+	text-align: center;
+}
+
+.font-lg:hover {
+	text-decoration: none;
+}
+
+.flip-card {
+	height: 20rem;
+	min-width: 15rem;
+	font-size: 2.5rem;
+	cursor: pointer;
+}
+
+.flip-card.hidden {
+	margin-left: -15rem;
+	margin-right: 0;
+	opacity: 0;
+	transition: all .75s ease;
+}
+
+.flip-card.hidden-right {
+	margin-right: -15rem;
+	margin-left: 0;
+	opacity: 0;
+	transition: all .75s ease;
+}
+
+.card-details {
+	font-size: 1.5rem;
+}
+
+.card-direction {
+	width: 2rem;
+	height: 2rem;
+	cursor: pointer;
+}
+
+.card-direction.disabled {
+	opacity: 0.8;
+}
