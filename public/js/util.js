@@ -1,9 +1,10 @@
 
 let progress = 1;
 let side = 0;
+let buttoLock = 0;
 
 const words = [
-	[ "Skiing", "Go" ],
+	[ "Go", "Skiing" ],
 	[ "Play", "Football" ],
 	[ "Hero", "Selection" ],
 	[ "Core", "Exception" ],
@@ -16,8 +17,39 @@ const words = [
 ];
 
 $(document).ready(function() {
+
+	function moveCard(domOne, domTwo, hiddenClass = "hidden") {
+		if (hiddenClass === "hidden-right") {
+			const cloned = $(domOne).clone();
+			$(domOne).remove();
+			$(".card-container").prepend(cloned);
+		}
+		$(domOne).removeClass('flipped');
+		$(domTwo).removeClass('flipped');
+		$(`${domOne} .front`).html(words[progress-1][0]);
+		$(`${domOne} .back`).html(words[progress-1][1]);
+		$(domTwo).addClass(hiddenClass);
+		$(domOne).removeClass("d-none");
+		setTimeout(() => {
+			$(domOne).removeClass("vd-none");
+		}, 20);
+		buttoLock = 1;
+		setTimeout(() => {
+			$(domTwo).removeClass(hiddenClass);
+			$(domTwo).addClass("d-none");
+			$(domTwo).addClass("vd-none");
+
+			if (hiddenClass === "hidden") {
+				const cloned = $(domOne).clone();
+				$(domOne).remove();
+				$(".card-container").prepend(cloned);
+			}
+			buttoLock = 0;
+		}, 760);
+	}
+	
 	$("#prev").click(function() {
-		if (progress === 1) {
+		if (progress === 1 || buttoLock === 1) {
 			return;
 		}
 
@@ -30,36 +62,15 @@ $(document).ready(function() {
 		}
 		side = 0;
 		if ($("#back-card").hasClass("d-none")) {
-			moveCard("#back-card", "#flip-card", words[progress-1][0], "hidden-right");
+			moveCard("#back-card", "#flip-card", "hidden-right");
 		} else {
-			moveCard("#flip-card", "#back-card", words[progress-1][0], "hidden-right");
+			moveCard("#flip-card", "#back-card", "hidden-right");
 		}
 		$("#progress").html(progress);
 	});
 
-	function moveCard(domOne, domTwo, value, hiddenClass = "hidden") {
-		if (hiddenClass === "hidden-right") {
-			const cloned = $(domOne).clone();
-			$(domOne).remove();
-			$(".card-container").prepend(cloned);
-		}
-		$(domOne).html(value);
-		$(domTwo).addClass(hiddenClass);
-		$(domOne).removeClass("d-none");
-		setTimeout(() => {
-			$(domTwo).removeClass(hiddenClass);
-			$(domTwo).addClass("d-none");
-
-			if (hiddenClass === "hidden") {
-				const cloned = $(domOne).clone();
-				$(domOne).remove();
-				$(".card-container").prepend(cloned);
-			}
-		}, 760);
-	}
-
 	$("#next").click(function() {
-		if (progress === 10) {
+		if (progress === 10 || buttoLock === 1) {
 			return;
 		}
 
@@ -72,20 +83,25 @@ $(document).ready(function() {
 		}
 		side = 0;
 		if ($("#back-card").hasClass("d-none")) {
-			moveCard("#back-card", "#flip-card", words[progress-1][0]);
+			moveCard("#back-card", "#flip-card");
 		} else {
-			moveCard("#flip-card", "#back-card", words[progress-1][0]);
+			moveCard("#flip-card", "#back-card");
 		}
 		$("#progress").html(progress);
 	});
 });
 
-$(document).on("click", "#flip-card", function() {
+function flipCard(dom) {
 	side = 1 - side;
-	$("#flip-card").html(words[progress-1][side]);
+	$(`${dom} .back`).html(words[progress-1][side]);
+	$(`${dom} .front`).html(words[progress-1][side]);
+	$(`${dom}`).toggleClass("flipped");
+}
+
+$(document).on("click", "#flip-card", function() {
+	flipCard("#flip-card");
 });
 
 $(document).on("click", "#back-card", function() {
-	side = 1 - side;
-	$("#back-card").html(words[progress-1][side]);
+	flipCard("#back-card");
 });
