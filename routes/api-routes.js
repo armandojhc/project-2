@@ -52,4 +52,14 @@ module.exports = function(app) {
       });
     }
   });
+
+  // -------------------------------------------------------------
+
+  // Get route for returning posts of a specific category
+  app.get("/api/phrases", (req, res) => {
+    db.Phrase.findAll({})
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
 };
