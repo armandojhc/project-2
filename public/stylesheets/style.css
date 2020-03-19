@@ -93,7 +93,8 @@
 	padding-top: 10px;
   padding-right: 0px;
   padding-bottom: 0px;
-  padding-left: 0px;
+	padding-left: 0px;
+	color: white;
 }
 
 .header-logo {
@@ -156,4 +157,8 @@
 
 .yourmomjokes-background-color {
 	background-color: #fff6f5;
+}
+
+#header-wrapper {
+
 }
