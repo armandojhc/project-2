@@ -1,162 +1,161 @@
-
 .font-lg {
-	font-size: 2rem;
-	text-align: center;
-	flex: 1;
+  font-size: 2rem;
+  text-align: center;
+  flex: 1;
 }
 
 .card-block {
-	min-height: 15rem;
+  min-height: 15rem;
 }
 
 .font-lg:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .card-container {
-	perspective: 1000px;
+  perspective: 1000px;
 }
 
 .flip-card {
-	height: 20rem;
-	min-width: 15rem;
-	font-size: 2.5rem;
-	cursor: pointer;
-	transform-style: preserve-3d;
-	position: relative;
-	opacity: 1;
-	transition-delay: .05s;
-	transition: transform .75s ease, opacity .75s ease;
+  height: 20rem;
+  min-width: 15rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  position: relative;
+  opacity: 1;
+  transition-delay: 0.05s;
+  transition: transform 0.75s ease, opacity 0.75s ease;
 }
 
 .flip-card.vd-none {
-	opacity: 0;
-	transition: opacity .73s ease;
+  opacity: 0;
+  transition: opacity 0.73s ease;
 }
 
 .flip-card .front {
-	background-color: #343a40 !important;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	position: absolute;
-	width: 100%;
-	height: 100%;
+  background-color: #343a40 !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .flip-card .back {
-	background-color: #343a40 !important;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	position: absolute;
-	width: 100%;
-	height: 100%;
+  background-color: #343a40 !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .flip-card .back {
-	transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .flip-card.hidden {
-	transform: translateX(-15rem);
-	margin-right: -15rem;
-	opacity: 0;
-	transition: all .75s ease;
+  transform: translateX(-15rem);
+  margin-right: -15rem;
+  opacity: 0;
+  transition: all 0.75s ease;
 }
 
 .flip-card.hidden-right {
-	margin-right: -15rem;
-	margin-left: 0;
-	opacity: 0;
-	transition: opacity .75s ease, margin-right .75s ease;
+  margin-right: -15rem;
+  margin-left: 0;
+  opacity: 0;
+  transition: opacity 0.75s ease, margin-right 0.75s ease;
 }
 
 .flip-card.flipped {
-	transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .card-details {
-	font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .card-direction {
-	width: 2rem;
-	height: 2rem;
-	cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
 }
 
 .card-direction.disabled {
-	opacity: 0.8;
+  opacity: 0.8;
 }
 
 .header-text {
-	font-size: 40px;
-	padding-top: 10px;
+  font-size: 40px;
+  padding-top: 10px;
   padding-right: 0px;
   padding-bottom: 0px;
-	padding-left: 0px;
-	color: white;
+  padding-left: 0px;
+  color: white;
 }
 
 .header-logo {
-	float:left;
+  float: left;
 }
 
 .navbar {
-	text-align: center;
+  text-align: center;
 }
 
 .hello-user {
-	padding-top: 15px;
-	font-size: 20px;
-	color: white;
+  padding-top: 15px;
+  font-size: 20px;
+  color: white;
 }
 
 .travel-text {
-	color: #007BFE;
+  color: #007bfe;
 }
 
 .home-text {
-	color: grey;
+  color: grey;
 }
 
 .food-text {
-	color: #FFC106;
+  color: #ffc106;
 }
 
 .work-text {
-	color: #333940;
+  color: #333940;
 }
 
 .social-text {
-	color: #27A745;
+  color: #27a745;
 }
 
 .yourmomjokes-text {
-	color: #DC3545;
+  color: #dc3545;
 }
 
 .home-background-color {
-	background-color: #e3e3e3;
+  background-color: #e3e3e3;
 }
 
 .travel-background-color {
-	background-color: #f5faff;
+  background-color: #f5faff;
 }
 
 .food-background-color {
-	background-color: #fffcf5;
+  background-color: #fffcf5;
 }
 
 .work-background-color {
-	background-color: #f7f7f7;
+  background-color: #f7f7f7;
 }
 
 .social-background-color {
-	background-color: #f5fff8;
+  background-color: #f5fff8;
 }
 
 .yourmomjokes-background-color {
-	background-color: #fffbfa;
+  background-color: #fffbfa;
 }
 
 .travel-footer {
@@ -164,7 +163,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #007BFE;
+  background-color: #007bfe;
   color: white;
   text-align: center;
 }
@@ -174,7 +173,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #FFC106;
+  background-color: #ffc106;
   color: white;
   text-align: center;
 }
@@ -194,7 +193,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #27A745;
+  background-color: #27a745;
   color: white;
   text-align: center;
 }
@@ -204,13 +203,13 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #DC3545;
+  background-color: #dc3545;
   color: white;
   text-align: center;
 }
 
 .footer-text {
-	padding-top: 10px;
-	font-size: 15px;
-	padding-bottom: 0px;
+  padding-top: 10px;
+  font-size: 15px;
+  padding-bottom: 0px;
 }
