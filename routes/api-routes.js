@@ -59,7 +59,24 @@ module.exports = function(app) {
   app.get("/api/phrases", (req, res) => {
     db.Phrase.findAll({})
       .then(function(dbPost) {
+        
         res.json(dbPost);
       });
   });
+  
+  // added this route so it finds the phrase per category 
+  app.get("/api/phrases/:catagory", (req, res) => {
+    
+    db.Phrase.findAll({
+      where: {
+        catagory: req.params.catagory
+      }
+    })
+      .then(function(dbPost) {
+        
+        res.json(dbPost);
+      });
+
+  });
+  
 };

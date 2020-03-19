@@ -3,18 +3,20 @@ let progress = 1;
 let side = 0;
 let buttoLock = 0;
 
-const words = [
-	[ "Go", "Skiing" ],
-	[ "Play", "Football" ],
-	[ "Hero", "Selection" ],
-	[ "Core", "Exception" ],
-	[ "Card", "Flip" ],
-	[ "Social", "Media" ],
-	[ "Good", "Work" ],
-	[ "Do", "Jokes" ],
-	[ "Click", "Me" ],
-	[ "The", "End"]
-];
+// const words = [
+// 	[ "Go", "Skiing" ],
+// 	[ "Play", "Football" ],
+// 	[ "Hero", "Selection" ],
+// 	[ "Core", "Exception" ],
+// 	[ "Card", "Flip" ],
+// 	[ "Social", "Media" ],
+// 	[ "Good", "Work" ],
+// 	[ "Do", "Jokes" ],
+// 	[ "Click", "Me" ],
+// 	[ "The", "End"]
+// ];
+
+let phrases = [];
 
 $(document).ready(function() {
 
@@ -26,8 +28,8 @@ $(document).ready(function() {
 		}
 		$(domOne).removeClass('flipped');
 		$(domTwo).removeClass('flipped');
-		$(`${domOne} .front`).html(words[progress-1][0]);
-		$(`${domOne} .back`).html(words[progress-1][1]);
+		$(`${domOne} .front`).html(phrases[progress-1].english);
+		$(`${domOne} .back`).html(phrases[progress-1].spanish);
 		$(domTwo).addClass(hiddenClass);
 		$(domOne).removeClass("d-none");
 		setTimeout(() => {
@@ -89,12 +91,22 @@ $(document).ready(function() {
 		}
 		$("#progress").html(progress);
 	});
+//  front end api call to the travel category
+
+	$.get("/api/phrases/travel").then(function(data) {
+		phrases = data;
+		$(`${"#flip-card"} .front`).html(data[0].english);
+		$(`${"#flip-card"} .back`).html(data[0].spanish);
+
+	  })
+	  .catch(err => console.log(err));
 });
 
 function flipCard(dom) {
 	side = 1 - side;
-	$(`${dom} .back`).html(words[progress-1][side]);
-	$(`${dom} .front`).html(words[progress-1][side]);
+	// Flipped the english first then the spanish
+	$(`${dom} .back`).html(phrases[progress-1].spanish);
+	$(`${dom} .front`).html(phrases[progress-1].english);
 	$(`${dom}`).toggleClass("flipped");
 }
 
