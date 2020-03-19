@@ -87,3 +87,25 @@
 .card-direction.disabled {
 	opacity: 0.8;
 }
+
+.header-text {
+	font-size: 40px;
+	padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+.header-logo {
+	float:left;
+}
+
+.navbar {
+	text-align: center;
+}
+
+.hello-user {
+	padding-top: 15px;
+	font-size: 20px;
+	color: white;
+}
