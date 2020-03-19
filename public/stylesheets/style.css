@@ -159,6 +159,58 @@
 	background-color: #fff6f5;
 }
 
-#header-wrapper {
+.travel-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #007BFE;
+  color: white;
+  text-align: center;
+}
 
+.food-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #FFC106;
+  color: white;
+  text-align: center;
+}
+
+.work-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #333940;
+  color: white;
+  text-align: center;
+}
+
+.social-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #27A745;
+  color: white;
+  text-align: center;
+}
+
+.yourmomjokes-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #DC3545;
+  color: white;
+  text-align: center;
+}
+
+.footer-text {
+	padding-top: 10px;
+	font-size: 15px;
+	padding-bottom: 0px;
 }
