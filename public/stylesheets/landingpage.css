@@ -14,7 +14,7 @@ body{
 }
 
 #showcase{
-  background-image:url('http://traversymedia.com/downloads/assets/beachshowcase.jpg');
+  background-image:url('https://i.imgur.com/1NKMP2P.png');
   background-size:cover;
   background-position:center;
   height:100vh;
@@ -39,8 +39,9 @@ span {
 #showcase .button{
   font-size:25px;
   text-decoration:none;
-  color:#555555;
+  color:#d1d1d1;
   border:#555555 1px solid;
+  background-color: rgba(30, 30, 30, 0.6);
   padding:10px 20px;
   border-radius:10px;
 	margin-top:20px;
@@ -48,8 +49,8 @@ span {
 }
 
 #showcase .button:hover{
-  background:#555555;
-  color:#fff;
+  background:#dadada;
+  color:rgb(0, 0, 0);
 }
 
 .login{
