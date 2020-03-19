@@ -109,3 +109,51 @@
 	font-size: 20px;
 	color: white;
 }
+
+.travel-text {
+	color: #007BFE;
+}
+
+.home-text {
+	color: grey;
+}
+
+.food-text {
+	color: #FFC106;
+}
+
+.work-text {
+	color: #333940;
+}
+
+.social-text {
+	color: #27A745;
+}
+
+.yourmomjokes-text {
+	color: #DC3545;
+}
+
+.home-background-color {
+	background-color: #e3e3e3;
+}
+
+.travel-background-color {
+	background-color: #f5faff;
+}
+
+.food-background-color {
+	background-color: #fffcf5;
+}
+
+.work-background-color {
+	background-color: #f7f7f7;
+}
+
+.social-background-color {
+	background-color: #f5fff8;
+}
+
+.yourmomjokes-background-color {
+	background-color: #fff6f5;
+}
