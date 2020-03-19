@@ -8,4 +8,5 @@ $(document).ready(function() {
   $.get("/api/phrases").then(function(data) {
     console.log(data);
   })
+  .catch(err => console.log(err));
 });

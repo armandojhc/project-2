@@ -21,6 +21,8 @@ module.exports = function(sequelize, DataTypes) {
             len: [250]
         }
       }
+    }, {
+      timestamps: false
     });
     return Phrase;
   };
