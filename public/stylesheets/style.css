@@ -151,7 +151,7 @@
 }
 
 .social-background-color {
-  background-color: #f5fff8;
+  background-color: #f9fffb;
 }
 
 .yourmomjokes-background-color {
@@ -212,4 +212,9 @@
   padding-top: 10px;
   font-size: 15px;
   padding-bottom: 0px;
+}
+
+.knucklespicture {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
