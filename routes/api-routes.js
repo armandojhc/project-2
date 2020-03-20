@@ -31,6 +31,12 @@ module.exports = function(app) {
       });
   });
 
+  // Route for updating leftoff in User table
+  app.post("/api/update-progress", (req, res) => {
+
+  });
+
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
@@ -43,7 +49,7 @@ module.exports = function(app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user's email and id
+      // Otherwise send back the user's email and id and progress
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
