@@ -2,11 +2,11 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
@@ -17,34 +17,42 @@ module.exports = function(app) {
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("/api/signup", function(req, res) {
+  app.post("/api/signup", function (req, res) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
-      leftoff: 0
+      progressTravel: 0, progressFood: 0, progressWork: 0, progressSocial: 0, progressJokes: 0
     })
-      .then(function() {
+      .then(function () {
         res.redirect(307, "/api/login");
       })
-      .catch(function(err) {
+      .catch(function (err) {
         res.status(401).json(err);
       });
   });
-
+  // travel food work socialize joke
   // Route for updating leftoff in User table
-  app.post("/api/update-progress", (req, res) => {
+  app.post("/api/update-progress/:category/:id", (req, res) => {
+    let category = req.params.category;
+    let id = req.params.id;
+    let updateThis = {};
+    updateThis[category] = id + 1;
 
+    db.User.update({ updateThis }, {
+      where: {
+        id: req.user.id
+      }
+    });
   });
 
-
   // Route for logging user out
-  app.get("/logout", function(req, res) {
+  app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/login");
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
+  app.get("/api/user_data", function (req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -54,7 +62,11 @@ module.exports = function(app) {
       res.json({
         email: req.user.email,
         id: req.user.id,
-        leftoff: req.user.leftoff
+        progressTravel: req.user.progressTravel,
+        progressFood: req.user.progressFood,
+        progressWork: req.user.progressWork,
+        progressSocial: req.user.progressSocial,
+        progressJokes: req.user.progressJokes
       });
     }
   });
@@ -64,25 +76,25 @@ module.exports = function(app) {
   // Get route for returning posts of a specific category
   app.get("/api/phrases", (req, res) => {
     db.Phrase.findAll({})
-      .then(function(dbPost) {
-        
+      .then(function (dbPost) {
+
         res.json(dbPost);
       });
   });
-  
+
   // added this route so it finds the phrase per category 
   app.get("/api/phrases/:catagory", (req, res) => {
-    
+
     db.Phrase.findAll({
       where: {
         catagory: req.params.catagory
       }
     })
-      .then(function(dbPost) {
-        
+      .then(function (dbPost) {
+
         res.json(dbPost);
       });
 
   });
-  
+
 };
