@@ -19,6 +19,7 @@ let phrases = [];
 
 $(document).ready(function () {
 
+
 	function moveCard(domOne, domTwo, hiddenClass = "hidden") {
 		if (hiddenClass === "hidden-right") {
 			const cloned = $(domOne).clone();
@@ -58,6 +59,7 @@ $(document).ready(function () {
 			$("#next").removeClass("disabled");
 		}
 		progress--;
+
 		if (progress === 1 && !$(this).hasClass("disabled")) {
 			$(this).addClass("disabled");
 		}
@@ -112,6 +114,18 @@ function flipCard(dom) {
 	$(`${dom} .back`).html(phrases[progress - 1].spanish);
 	$(`${dom} .front`).html(phrases[progress - 1].english);
 	$(`${dom}`).toggleClass("flipped");
+}
+
+function updateProgress(progress) {
+	
+	$.post(`/api/update-progress/${category}/${progress}`, {
+
+	})
+		.then(function (data) {
+			window.location.replace("/home");
+			// If there's an error, handle it by throwing up a bootstrap alert
+		})
+		.catch(handleLoginErr);
 }
 
 $(document).on("click", "#flip-card", function () {
