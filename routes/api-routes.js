@@ -32,17 +32,25 @@ module.exports = function (app) {
   });
   // travel food work socialize joke
   // Route for updating leftoff in User table
-  app.post("/api/update-progress/:category/:progress", (req, res) => {
-    let category = req.params.category;
-    let progress = req.params.progress;
+  app.post("/api/update-progress", (req, res) => {
+    let category = req.body.category;
+    let progress = req.body.progress;
     let updateThis = {};
+    //give the updateThis object the property name of the value of the category variable and set that property value to the value of progress
     updateThis[category] = progress;
 
-    db.User.update({ updateThis }, {
+    console.log(`category: ${category}`, `progress: ${updateThis.progressTravel} is type: ${typeof progress}`);
+    console.log(`user id: ${req.user.id}`);
+
+    db.User.update(updateThis, {
       where: {
         id: req.user.id
       }
-    });
+    })
+      .then(function () {
+        res.end();
+      });
+
   });
 
   // Route for logging user out

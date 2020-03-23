@@ -1,6 +1,7 @@
 let progress = 1;
 let side = 0;
 let buttoLock = 0;
+let progCat = 'progressTravel';
 
 // const words = [
 // 	[ "Go", "Skiing" ],
@@ -60,6 +61,9 @@ $(document).ready(function () {
 		}
 		progress--;
 
+		// call updateProgress function, pass it the category and progress number
+		updateProgress(progCat, progress);
+
 		if (progress === 1 && !$(this).hasClass("disabled")) {
 			$(this).addClass("disabled");
 		}
@@ -81,6 +85,10 @@ $(document).ready(function () {
 			$("#prev").removeClass("disabled");
 		}
 		progress++;
+
+		// call updateProgress function, pass it the category and progress number
+		updateProgress(progCat, progress);
+
 		if (progress === 10 && !$(this).hasClass("disabled")) {
 			$(this).addClass("disabled");
 		}
@@ -116,16 +124,14 @@ function flipCard(dom) {
 	$(`${dom}`).toggleClass("flipped");
 }
 
-function updateProgress(progress) {
-	
-	$.post(`/api/update-progress/${category}/${progress}`, {
-
+function updateProgress(category, progress) {
+	$.post("/api/update-progress", {
+		category: category,
+		progress: progress
 	})
 		.then(function (data) {
-			window.location.replace("/home");
-			// If there's an error, handle it by throwing up a bootstrap alert
-		})
-		.catch(handleLoginErr);
+			console.log("made post");
+		});
 }
 
 $(document).on("click", "#flip-card", function () {
