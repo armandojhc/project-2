@@ -18,7 +18,7 @@ let buttoLock = 0;
 
 let phrases = [];
 
-$(document).ready(function() {
+$(document).ready(function () {
 
 	function moveCard(domOne, domTwo, hiddenClass = "hidden") {
 		if (hiddenClass === "hidden-right") {
@@ -28,8 +28,8 @@ $(document).ready(function() {
 		}
 		$(domOne).removeClass('flipped');
 		$(domTwo).removeClass('flipped');
-		$(`${domOne} .front`).html(phrases[progress-1].english);
-		$(`${domOne} .back`).html(phrases[progress-1].spanish);
+		$(`${domOne} .front`).html(phrases[progress - 1].english);
+		$(`${domOne} .back`).html(phrases[progress - 1].spanish);
 		$(domTwo).addClass(hiddenClass);
 		$(domOne).removeClass("d-none");
 		setTimeout(() => {
@@ -49,8 +49,8 @@ $(document).ready(function() {
 			buttoLock = 0;
 		}, 760);
 	}
-	
-	$("#prev").click(function() {
+
+	$("#prev").click(function () {
 		if (progress === 1 || buttoLock === 1) {
 			return;
 		}
@@ -58,7 +58,7 @@ $(document).ready(function() {
 		if ($("#next").hasClass("disabled")) {
 			$("#next").removeClass("disabled");
 		}
-		progress --;
+		progress--;
 		if (progress === 1 && !$(this).hasClass("disabled")) {
 			$(this).addClass("disabled");
 		}
@@ -71,7 +71,7 @@ $(document).ready(function() {
 		$("#progress").html(progress);
 	});
 
-	$("#next").click(function() {
+	$("#next").click(function () {
 		if (progress === 10 || buttoLock === 1) {
 			return;
 		}
@@ -79,7 +79,7 @@ $(document).ready(function() {
 		if ($("#prev").hasClass("disabled")) {
 			$("#prev").removeClass("disabled");
 		}
-		progress ++;
+		progress++;
 		if (progress === 10 && !$(this).hasClass("disabled")) {
 			$(this).addClass("disabled");
 		}
@@ -92,29 +92,33 @@ $(document).ready(function() {
 		$("#progress").html(progress);
 	});
 
-//  front end api call to the travel category
+	// api call sets username top right
+	$.get("/api/user_data").then(function (data) {
+		$(".member-name").text(`Logged in as ${data.email}`);
+	});
 
-$.get("/api/phrases/socializing").then(function(data) {
-	phrases = data;
-	$(`${"#flip-card"} .front`).html(data[0].english);
-	$(`${"#flip-card"} .back`).html(data[0].spanish);
+	//  front end api call to the travel category
+	$.get("/api/phrases/socializing").then(function (data) {
+		phrases = data;
+		$(`${"#flip-card"} .front`).html(data[0].english);
+		$(`${"#flip-card"} .back`).html(data[0].spanish);
 
-  })
-  .catch(err => console.log(err));
+	})
+		.catch(err => console.log(err));
 });
 
 function flipCard(dom) {
-side = 1 - side;
-// Flipped the english first then the spanish
-$(`${dom} .back`).html(phrases[progress-1].spanish);
-$(`${dom} .front`).html(phrases[progress-1].english);
-$(`${dom}`).toggleClass("flipped");
+	side = 1 - side;
+	// Flipped the english first then the spanish
+	$(`${dom} .back`).html(phrases[progress - 1].spanish);
+	$(`${dom} .front`).html(phrases[progress - 1].english);
+	$(`${dom}`).toggleClass("flipped");
 }
 
-$(document).on("click", "#flip-card", function() {
-flipCard("#flip-card");
+$(document).on("click", "#flip-card", function () {
+	flipCard("#flip-card");
 });
 
-$(document).on("click", "#back-card", function() {
-flipCard("#back-card");
+$(document).on("click", "#back-card", function () {
+	flipCard("#back-card");
 });
