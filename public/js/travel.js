@@ -1,7 +1,7 @@
-let progress = 1;
 let side = 0;
 let buttoLock = 0;
-let progCat = 'progressTravel';
+let progCat = "progressTravel";
+let progress = 1;
 
 // const words = [
 // 	[ "Go", "Skiing" ],
@@ -20,7 +20,12 @@ let phrases = [];
 
 $(document).ready(function () {
 
-
+	//Set progress from database
+	$.get("/api/user_data").then(function (data) {
+		progress = data[progCat];
+		console.log(`set progress to ${data[progCat]}`);
+	});
+	
 	function moveCard(domOne, domTwo, hiddenClass = "hidden") {
 		if (hiddenClass === "hidden-right") {
 			const cloned = $(domOne).clone();
@@ -60,8 +65,7 @@ $(document).ready(function () {
 			$("#next").removeClass("disabled");
 		}
 		progress--;
-
-		// call updateProgress function, pass it the category and progress number
+		//update database with new progress number
 		updateProgress(progCat, progress);
 
 		if (progress === 1 && !$(this).hasClass("disabled")) {
@@ -111,7 +115,6 @@ $(document).ready(function () {
 		phrases = data;
 		$(`${"#flip-card"} .front`).html(data[0].english);
 		$(`${"#flip-card"} .back`).html(data[0].spanish);
-
 	})
 		.catch(err => console.log(err));
 });
@@ -124,6 +127,7 @@ function flipCard(dom) {
 	$(`${dom}`).toggleClass("flipped");
 }
 
+//function to update progress for user in database
 function updateProgress(category, progress) {
 	$.post("/api/update-progress", {
 		category: category,
