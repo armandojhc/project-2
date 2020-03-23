@@ -21,7 +21,7 @@ module.exports = function (app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
-      progressTravel: 0, progressFood: 0, progressWork: 0, progressSocial: 0, progressJokes: 0
+      progressTravel: 1, progressFood: 1, progressWork: 1, progressSocial: 1, progressJokes: 1
     })
       .then(function () {
         res.redirect(307, "/api/login");
@@ -32,17 +32,25 @@ module.exports = function (app) {
   });
   // travel food work socialize joke
   // Route for updating leftoff in User table
-  app.post("/api/update-progress/:category/:id", (req, res) => {
-    let category = req.params.category;
-    let id = req.params.id;
+  app.post("/api/update-progress", (req, res) => {
+    let category = req.body.category;
+    let progress = req.body.progress;
     let updateThis = {};
-    updateThis[category] = id + 1;
+    //give the updateThis object the property name of the value of the category variable and set that property value to the value of progress
+    updateThis[category] = progress;
 
-    db.User.update({ updateThis }, {
+    console.log(`category: ${category}`, `progress: ${updateThis.progressTravel} is type: ${typeof progress}`);
+    console.log(`user id: ${req.user.id}`);
+
+    db.User.update(updateThis, {
       where: {
         id: req.user.id
       }
-    });
+    })
+      .then(function () {
+        res.end();
+      });
+
   });
 
   // Route for logging user out
