@@ -50,7 +50,6 @@ module.exports = function (app) {
       .then(function () {
         res.end();
       });
-
   });
 
   // Route for logging user out
@@ -67,15 +66,23 @@ module.exports = function (app) {
     } else {
       // Otherwise send back the user's email and id and progress
       // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id,
-        progressTravel: req.user.progressTravel,
-        progressFood: req.user.progressFood,
-        progressWork: req.user.progressWork,
-        progressSocial: req.user.progressSocial,
-        progressJokes: req.user.progressJokes
-      });
+      db.User.findAll({
+        where: {
+          id: req.user.id
+        }
+      })
+        .then(function (data) {
+          res.json({
+            email: req.user.email,
+            id: req.user.id,
+            progressTravel: data[0].dataValues.progressTravel,
+            progressFood: data[0].dataValues.progressFood,
+            progressWork: data[0].dataValues.progressWork,
+            progressSocial: data[0].dataValues.progressSocial,
+            progressJokes: data[0].dataValues.progressJokes
+          });
+        });
+
     }
   });
 

@@ -24,6 +24,22 @@ $(document).ready(function () {
 	$.get("/api/user_data").then(function (data) {
 		progress = data[progCat];
 		console.log(`set progress to ${data[progCat]}`);
+		//  front end api call to the work category
+		$.get("/api/phrases/work").then(function (data) {
+			phrases = data;
+			$("#progress").html(progress);
+			$(`${"#flip-card"} .front`).html(data[progress - 1].english);
+			$(`${"#flip-card"} .back`).html(data[progress - 1].spanish);
+			if (progress > 1 && $("#prev").hasClass("disabled")) {
+				$("#prev").removeClass("disabled");
+			} else if (progress < 10 && $("#next").hasClass("disabled")) {
+				$("#next").removeClass("disabled");
+			}
+			if (progress === 10) {
+				$("#next").addClass("disabled")
+			}
+		})
+			.catch(err => console.log(err));
 	});
 
 	function moveCard(domOne, domTwo, hiddenClass = "hidden") {
