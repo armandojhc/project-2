@@ -25,6 +25,7 @@ $(document).ready(function () {
 		progress = data[progCat];
 		console.log(`set progress to ${data[progCat]}`);
 		//  front end api call to the work category
+		$(".member-name").text(`Logged in as ${data.email}`);
 		$.get("/api/phrases/work").then(function (data) {
 			phrases = data;
 			$("#progress").html(progress);
@@ -119,11 +120,6 @@ $(document).ready(function () {
 			moveCard("#flip-card", "#back-card");
 		}
 		$("#progress").html(progress);
-	});
-
-	// api call sets username top right
-	$.get("/api/user_data").then(function (data) {
-		$(".member-name").text(`Logged in as ${data.email}`);
 	});
 
 	//  front end api call to the travel category
