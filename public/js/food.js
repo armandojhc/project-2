@@ -26,7 +26,7 @@ $(document).ready(function () {
 		console.log(`set progress to ${data[progCat]}`);
 		//  front end api call to the work category
 		$(".member-name").text(`Logged in as ${data.email}`);
-		$.get("/api/phrases/work").then(function (data) {
+		$.get("/api/phrases/food").then(function (data) {
 			phrases = data;
 			$("#progress").html(progress);
 			$(`${"#flip-card"} .front`).html(data[progress - 1].english);

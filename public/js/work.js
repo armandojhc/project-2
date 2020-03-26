@@ -24,7 +24,7 @@ $(document).ready(function () {
 	$.get("/api/user_data").then(function (data) {
 		progress = data[progCat];
 		console.log(`set progress to ${data[progCat]}`);
-		//  front end api call to the work category
+		//  front end api call to the work categoryz
 		$(".member-name").text(`Logged in as ${data.email}`);
 		$.get("/api/phrases/work").then(function (data) {
 			phrases = data;
