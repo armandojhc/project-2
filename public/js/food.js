@@ -120,14 +120,6 @@ $(document).ready(function () {
 		}
 		$("#progress").html(progress);
 	});
-
-	//  front end api call to the food category
-	$.get("/api/phrases/food").then(function (data) {
-		phrases = data;
-		$(`${"#flip-card"} .front`).html(data[0].english);
-		$(`${"#flip-card"} .back`).html(data[0].spanish);
-	})
-		.catch(err => console.log(err));
 });
 
 function flipCard(dom) {
