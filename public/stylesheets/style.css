@@ -105,9 +105,18 @@
   text-align: center;
 }
 
+.loggedinas {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  font-size: 18px;
+  color: white;
+}
+
 .hello-user {
-  padding-top: 15px;
-  font-size: 20px;
+  padding-top: 0px;
+  margin-top: 0px;
+  font-size: 18px;
   color: white;
 }
 

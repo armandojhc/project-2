@@ -16,7 +16,7 @@ $(document).ready(function () {
     progressSocial = data.progressSocial;
     progressJokes = data.progressJokes;
     //  front end api call to the work category
-    $(".member-name").text(`Logged in as ${data.email}`);
+    $(".member-name").text(` ${data.email}`);
     $(".home-progress-travel").text(`Progress: ${data.progressTravel}`);
     $(".home-progress-food").text(`Progress: ${data.progressFood}`);
     $(".home-progress-work").text(`Progress: ${data.progressWork}`);
