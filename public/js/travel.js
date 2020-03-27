@@ -121,14 +121,6 @@ $(document).ready(function () {
 		}
 		$("#progress").html(progress);
 	});
-
-	//  front end api call to the travel category
-	$.get("/api/phrases/travel").then(function (data) {
-		phrases = data;
-		$(`${"#flip-card"} .front`).html(data[progress].english);
-		$(`${"#flip-card"} .back`).html(data[progress].spanish);
-	})
-		.catch(err => console.log(err));
 });
 
 function flipCard(dom) {
