@@ -2,6 +2,7 @@
   font-size: 2rem;
   text-align: center;
   flex: 1;
+  margin-top: 20px;
 }
 
 .card-block {
@@ -217,4 +218,33 @@
 .knucklespicture {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.homeprogress10 {
+  font-size: 1.5rem;
+}
+
+.home-progress-travel {
+  font-size: 1.5rem;
+}
+
+.home-progress-food {
+  font-size: 1.5rem;
+}
+
+.home-progress-work {
+  font-size: 1.5rem;
+}
+
+.home-progress-social {
+  font-size: 1.5rem;
+}
+
+.home-progress-jokes {
+  font-size: 1.5rem;
+}
+
+.footerpadding {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
