@@ -90,7 +90,7 @@ module.exports = function (app) {
 
   // Get route for returning posts of a specific category
   app.get("/api/phrases", (req, res) => {
-    db.Phrase.findAll({})
+    db.phrase.findAll({})
       .then(function (dbPost) {
 
         res.json(dbPost);
@@ -100,7 +100,7 @@ module.exports = function (app) {
   // added this route so it finds the phrase per category 
   app.get("/api/phrases/:catagory", (req, res) => {
 
-    db.Phrase.findAll({
+    db.phrase.findAll({
       where: {
         catagory: req.params.catagory
       }

@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const Phrase = sequelize.define("Phrase", {
+    const Phrase = sequelize.define("phrase", {
       catagory: {
         type: DataTypes.STRING,
         allowNull: false,
