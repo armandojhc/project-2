@@ -1,23 +1,20 @@
 {
     "development": {
-      "username": "root",
-      "password": "root",
-      "database": "triolingo_db",
-      "host": "127.0.0.1",
+      "username": "e5tgwqomizfyebxn",
+      "password": "teqwvww4e3mwo8q4",
+      "database": "vjsk62524bu56124",
+      "host": "sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       "dialect": "mysql"
     },
     "test": {
-      "username": "root",
-      "password": null,
-      "database": "database_test",
-      "host": "127.0.0.1",
+      "username": "e5tgwqomizfyebxn",
+      "password": "teqwvww4e3mwo8q4",
+      "database": "vjsk62524bu56124",
+      "host": "sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       "dialect": "mysql"
     },
     "production": {
-      "username": "root",
-      "password": null,
-      "database": "database_production",
-      "host": "127.0.0.1",
+      "use_env_variable":"JAWSDB_URL",
       "dialect": "mysql"
     }
   }
