@@ -16,37 +16,37 @@ When login in the user lands in the application dashboard which has five categor
 ## How to use 
 
 Step 1 - Open app in the browser, user should see the splash site with Login or Register buttons
-![Alt text](/assets/Screenshot_1.jpg)
+![Alt text](/doc/images/Screenshot_1.jpg)
 
 Step 2 - REGISTER - Click register and user should be navigated to the register page where they will enter their email and password that they will user to login to the app.
-![Alt text](/assets/Screenshot_2.jpg)
+![Alt text](/doc/images/Screenshot_2.jpg)
 
-![Alt text](/assets/Screenshot_3.jpg)
+![Alt text](/doc/images/Screenshot_3.jpg)
 
 Step 3 - LOGIN - Click Login and user should be navigated to the login page where they will login using the email and password they registered with. Once login they should be taken to the dashbaord page.
-![Alt text](/assets/Screenshot_4.jpg)
+![Alt text](/doc/images/Screenshot_4.jpg)
 
-![Alt text](/assets/Screenshot_5.jpg)
+![Alt text](/doc/images/Screenshot_5.jpg)
 
 
 Step 4 - Once in the dashbaord the user will see five lessons of phrases that they will be able to navigate to. Each lessons has ten phrases to go over related to the pertaining lesson topic. 
 
 Step 5 - User should be able to click on any of the lessons and the site should navigate them to the first phrase note card in English. The user should be able to click on the note card and flip back and forward from English to Spanish.
 
-![Alt text](/assets/Screenshot_6.jpg)
+![Alt text](/doc/images/Screenshot_6.jpg)
 
-![Alt text](/assets/Screenshot_7.jpg)
+![Alt text](/doc/images/Screenshot_7.jpg)
 
 Step 6 - User is able to use the navigation arrows at the bottom of the note card to go to the next phrase.
 
 
 Step 7 - On the right side of the screen the user will see the navigation bar where they can navigate to other lessons, back to the dashboard or logout of the app.
 
-![Alt text](/assets/Screenshot_8.jpg)
+![Alt text](/doc/images/Screenshot_8.jpg)
 
 Step 8 - The app tracks the user progress as they navigate to each of the lessons. The progress should appear in the dashboard for each lessons viewed.
 
-![Alt text](/assets/Screenshot_9.jpg)
+![Alt text](/doc/images/Screenshot_9.jpg)
 
 The live / deployed page link is:
 
