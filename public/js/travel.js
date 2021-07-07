@@ -106,7 +106,6 @@ $(document).ready(function () {
 			$("#prev").removeClass("disabled");
 		}
 		progress++;
-
 		// call updateProgress function, pass it the category and progress number
 		updateProgress(progCat, progress);
 
